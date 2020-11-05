@@ -11,16 +11,18 @@
         <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 
-<body id="container">
+<body id="container" class="bg-animate">
         <header id="header">Palindrome Checker
                 <button id="btn-continue">Continue</button>
         </header>
 
         <section id="section-main">
                 <form id="form">
-                        <label for="word">Word to Check: </label><br />
-                        <input type="text" id="word" name="word">
-                        <input type="submit">
+                        <label for="word" id="label">Word to Check: </label><br />
+                        <div>
+                                <input type="text" id="word" name="word">
+                                <input type="submit" id="btn-submit">
+                        </div>
                 </form>
         </section>
 

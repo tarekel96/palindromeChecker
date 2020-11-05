@@ -7,12 +7,8 @@ let word = document.querySelector("#word"),
         results = document.querySelector("#results");
 
 const toggleForm = () => {
-        if (SECTION_MAIN.style.visibility === "hidden") {
-                SECTION_MAIN.style.visibility = "visible";
-        }
-        else {
-                SECTION_MAIN.style.visibility = "hidden";
-        }
+        if (SECTION_MAIN.style.visibility === "hidden") SECTION_MAIN.style.visibility = "visible";
+        else SECTION_MAIN.style.visibility = "hidden";
 }
 
 const checkWord = (word) => {
@@ -25,9 +21,7 @@ const checkWord = (word) => {
         }
 
         for (let j = 0; j < wordArray.length; ++j) {
-                if (wordArray[j] === reverseArray[j]) {
-                        continue;
-                }
+                if (wordArray[j] === reverseArray[j]) continue;
                 else {
                         isPalindrome = false;
                         break;
@@ -39,19 +33,18 @@ const checkWord = (word) => {
 
 const displayResults = (isPalindrome, word) => {
         if (isPalindrome) {
-                CONTAINER.style.backgroundColor = "green";
-                setTimeout(() => setScreenColor(), 1500);
+                CONTAINER.classList.remove("bg-animate");
+                CONTAINER.classList.add("correct");
                 results.innerHTML = word + " is a palindrome";
+                setTimeout(() => CONTAINER.classList.remove("correct"), 3000);
         }
         else {
-                CONTAINER.style.backgroundColor = "red";
-                setTimeout(() => setScreenColor(), 1500);
+                CONTAINER.classList.remove("bg-animate");
+                CONTAINER.classList.add("incorrect");
                 results.innerHTML = word + " is not a palindrome";
+                setTimeout(() => CONTAINER.classList.remove("incorrect"), 3000);
         }
-}
-
-const setScreenColor = () => {
-        CONTAINER.style.backgroundColor = 'white';
+        setTimeout(() => CONTAINER.classList.add("bg-animate"), 3000);
 }
 
 const handleSubmit = (event) => {
@@ -60,12 +53,9 @@ const handleSubmit = (event) => {
         let wordValue = word.value;
         wordValue = wordValue.toLowerCase();
         isPalindrome = checkWord(wordValue)
-        if (isPalindrome) {
-                displayResults(true, wordValue)
-        }
-        else {
-                displayResults(false, wordValue)
-        }
+
+        if (isPalindrome) displayResults(true, wordValue);
+        else displayResults(false, wordValue);
 
 }
 

@@ -2,11 +2,37 @@
   --font-family: "Noto Sans JP", sans-serif;
   --front-size-xl: 3.5rem;
   --front-size-l: 2rem;
+  --spacing-xxs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-xs: 0.75rem;
   --spacing-s: 1rem;
+  --spacing-l: 3rem;
+  --border-radius-s: 4px;
+  --border-radius-m: 8px;
+  --margin-center: 0 auto;
+  --animation-transition-s: 1s linear;
+  --text-color-grey: rgb(37, 35, 35);
+  --box-shadow: 0 4px 8px 0 var(--text-color-grey);
+  --text-shadow: 2px 2px 8px var(--text-color-grey);
+  --color-red: rgba(247, 11, 11, 0.726);
+  --color-green: rgb(3, 151, 3);
+  --color-green-light: #66bf39;
+  --color-yellow: rgb(229, 231, 109);
+  --color-purple: #a551f8;
+  --color-orange: #f78940;
+  --color-blue: #0c90ee;
 }
 
 * {
   font: var(--font-family);
+  color: var(--text-color-grey);
+}
+
+.bg-animate {
+  -webkit-animation: bgcolor 20s infinite;
+  animation: bgcolor 10s infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
 }
 
 #header {
@@ -15,12 +41,21 @@
   flex-direction: column;
   align-items: center;
   margin: var(--spacing-s);
+  text-shadow: var(--text-shadow);
 }
 
 #btn-continue {
   font-size: var(--front-size-l);
   margin: var(--spacing-s);
-  margin-top: 3rem;
+  margin-top: var(--spacing-l);
+  border-radius: var(--border-radius-m);
+  padding: var(--spacing-xs) var(--spacing-s);
+  box-shadow: var(--box-shadow);
+  color: var(--text-color-grey);
+}
+
+button:hover{
+  cursor: pointer;
 }
 
 #section-main {
@@ -31,10 +66,63 @@
 }
 
 #form {
-  margin: 0 auto;
+  margin: var(--margin-center);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  font-size: var(--front-size-l);
+}
+
+input {
+  border-radius: var(--border-radius-s);
+}
+
+#btn-submit{
+  height: 32.5px;
+}
+
+#word {
+  width: 400px;
+  height: 20px;
+  padding: var(--spacing-xxs) var(--spacing-s);
 }
 
 #results {
   font-size: var(--front-size-l);
   text-align: center;
+}
+
+.incorrect{
+  transition: var(--animation-transition-s);
+  background-color: var(--color-red);
+}
+
+.correct{
+  transition: var(--animation-transition-s);
+  background-color: var(--color-green);
+}
+
+@keyframes bgcolor {
+  0% {
+      background-color: var(--color-blue);
+  }
+
+  30% {
+      background-color: var(--color-green-light);
+  }
+
+  60% {
+      background-color: var(--color-orange);
+  }
+
+  90% {
+      background-color: var(--color-yellow);
+  }
+
+  100% {
+      background-color: var(--color-purple);
+  }
 }
