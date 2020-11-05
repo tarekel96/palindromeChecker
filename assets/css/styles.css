@@ -1,0 +1,40 @@
+:root {
+  --font-family: "Noto Sans JP", sans-serif;
+  --front-size-xl: 3.5rem;
+  --front-size-l: 2rem;
+  --spacing-s: 1rem;
+}
+
+* {
+  font: var(--font-family);
+}
+
+#header {
+  font-size: var(--front-size-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: var(--spacing-s);
+}
+
+#btn-continue {
+  font-size: var(--front-size-l);
+  margin: var(--spacing-s);
+  margin-top: 3rem;
+}
+
+#section-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  visibility: hidden;
+}
+
+#form {
+  margin: 0 auto;
+}
+
+#results {
+  font-size: var(--front-size-l);
+  text-align: center;
+}
